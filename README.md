@@ -7,7 +7,7 @@ Before running this Terraform configuration, you will need to:
 
 - Install Terraform on your local machine
 - Set up your AWS credentials on your local machine
-- 
+
 ## Configuration
 The Terraform configuration file in this repository creates the following resources:
 

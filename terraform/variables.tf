@@ -42,6 +42,11 @@ variable "ami_id" {
   type = string
 }
 
+variable "ssh-key" {
+  type = string
+}
+
+
 variable "instance_volume_type" {
   type    = string
   default = "gp2"

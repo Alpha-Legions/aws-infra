@@ -39,7 +39,7 @@ variable "app_port" {
 }
 
 variable "ami_id" {
-  type    = string
+  type = string
 }
 
 variable "instance_volume_type" {

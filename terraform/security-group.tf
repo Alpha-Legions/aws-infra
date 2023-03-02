@@ -1,8 +1,3 @@
-resource "aws_key_pair" "deployer" {
-  key_name   = "ec2-ub"
-  public_key = var.ssh-key
-}
-
 resource "aws_security_group" "security_group" {
   name = "application"
   depends_on = [
@@ -37,16 +32,33 @@ resource "aws_security_group" "security_group" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  egress {
+    from_port        = 0
+    to_port          = 0
+    protocol         = "-1"
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
+  }
+
+  egress {
+    from_port   = 3306
+    to_port     = 3306
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   vpc_id = aws_vpc.vpc.id
 }
 
+resource "aws_security_group" "db" {
+  name        = "database"
+  vpc_id      = aws_vpc.vpc.id
+  description = "Security group for RDS instances"
 
-resource "aws_security_group_rule" "allow_ssh" {
-  type                     = "ingress"
-  from_port                = 22
-  to_port                  = 22
-  protocol                 = "tcp"
-  security_group_id        = aws_security_group.security_group.id
-  description              = "Allow SSH traffic from the key-pair"
-  source_security_group_id = aws_security_group.security_group.id
+  ingress {
+    from_port       = 3306
+    to_port         = 3306
+    protocol        = "tcp"
+    security_groups = [aws_security_group.security_group.id]
+  }
 }

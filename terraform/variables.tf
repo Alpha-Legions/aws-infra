@@ -42,14 +42,51 @@ variable "ami_id" {
   type = string
 }
 
-variable "ssh-key" {
-  type = string
-}
-
-
 variable "instance_volume_type" {
   type    = string
   default = "gp2"
+}
+
+variable "db_engine" {
+  type    = string
+  default = "mysql"
+}
+
+variable "db_instance" {
+  type    = string
+  default = "db.t3.micro"
+}
+
+variable "db_multi_az" {
+  type    = bool
+  default = false
+}
+
+variable "db_instance_identifier" {
+  type    = string
+  default = "csye6225"
+}
+
+variable "db_username" {
+  type    = string
+  default = "csye6225"
+}
+
+variable "db_password" {
+  type = string
+}
+
+variable "db_name" {
+  type    = string
+  default = "csye6225"
+}
+
+variable "AWS_ACCESS_KEY_ID" {
+  type = string
+}
+
+variable "AWS_SECRET_ACCESS_KEY" {
+  type = string
 }
 
 locals {

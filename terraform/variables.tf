@@ -81,13 +81,24 @@ variable "db_name" {
   default = "csye6225"
 }
 
-variable "AWS_ACCESS_KEY_ID" {
-  type = string
+variable "record_name" {
+  type    = string
+  default = "dev.alphalegions.me"
 }
 
-variable "AWS_SECRET_ACCESS_KEY" {
-  type = string
+variable "zone_id" {
+  type    = string
+  default = "Z01784343K6WJH8S71GAZ"
 }
+
+
+# variable "AWS_ACCESS_KEY_ID" {
+#   type = string
+# }
+
+# variable "AWS_SECRET_ACCESS_KEY" {
+#   type = string
+# }
 
 locals {
   public_subnets  = [for i in range(1, var.public_subnet_count + 1) : cidrsubnet(var.vpc_cidr_block, 8, i)]

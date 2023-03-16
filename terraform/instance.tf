@@ -34,8 +34,6 @@ resource "aws_instance" "ec2_instance" {
     Environment="DB_DATABASE=${aws_db_instance.main.db_name}"
     Environment="AWS_BUCKET_NAME=${aws_s3_bucket.private.id}"
     Environment="AWS_REGION=${var.region}"
-    Environment="AWS_ACCESS_KEY_ID=${var.AWS_ACCESS_KEY_ID}"
-    Environment="AWS_SECRET_ACCESS_KEY=${var.AWS_SECRET_ACCESS_KEY}"
     Type=simple
     User=ec2-user
     WorkingDirectory=/home/ec2-user/webapp
@@ -54,3 +52,6 @@ resource "aws_iam_instance_profile" "EC2-CSYE6225_instance_profile" {
   name = "EC2-CSYE6225_Role_Instance_profile"
   role = aws_iam_role.EC2-CSYE6225.name
 }
+
+# Environment="AWS_ACCESS_KEY_ID=${var.AWS_ACCESS_KEY_ID}"
+# Environment="AWS_SECRET_ACCESS_KEY=${var.AWS_SECRET_ACCESS_KEY}"

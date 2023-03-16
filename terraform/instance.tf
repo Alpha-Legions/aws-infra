@@ -53,5 +53,5 @@ resource "aws_iam_instance_profile" "EC2-CSYE6225_instance_profile" {
   role = aws_iam_role.EC2-CSYE6225.name
 }
 
-    # Environment="AWS_ACCESS_KEY_ID=${var.AWS_ACCESS_KEY_ID}"
-    # Environment="AWS_SECRET_ACCESS_KEY=${var.AWS_SECRET_ACCESS_KEY}"
+# Environment="AWS_ACCESS_KEY_ID=${var.AWS_ACCESS_KEY_ID}"
+# Environment="AWS_SECRET_ACCESS_KEY=${var.AWS_SECRET_ACCESS_KEY}"

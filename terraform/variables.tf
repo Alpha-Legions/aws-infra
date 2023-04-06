@@ -91,6 +91,10 @@ variable "zone_id" {
   default = "Z01784343K6WJH8S71GAZ"
 }
 
+variable "ami_owner" {
+  type    = number
+  default = 320737828793
+}
 
 # variable "AWS_ACCESS_KEY_ID" {
 #   type = string

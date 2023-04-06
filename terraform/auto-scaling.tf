@@ -7,7 +7,7 @@ data "template_file" "user_data" {
     db_host       = aws_db_instance.main.endpoint
     db_name       = aws_db_instance.main.db_name
     aws_s3_bucket = aws_s3_bucket.private.id
-    aws_region = var.region
+    aws_region    = var.region
   }
 }
 

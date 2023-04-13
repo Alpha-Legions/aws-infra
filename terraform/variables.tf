@@ -38,9 +38,9 @@ variable "app_port" {
   default = 8000
 }
 
-variable "ami_id" {
-  type = string
-}
+# variable "ami_id" {
+#   type = string
+# }
 
 variable "instance_volume_type" {
   type    = string

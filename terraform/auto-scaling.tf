@@ -13,13 +13,13 @@ data "template_file" "user_data" {
 
 data "aws_ami" "custom_ami" {
   executable_users = ["self"]
-  most_recent        = true
+  most_recent      = true
 }
 
 resource "aws_launch_template" "asg_launch_template" {
-  name                    = "asg_launch_config"
-  image_id                = data.aws_ami.custom_ami.id
-  instance_type           = var.instance_type
+  name          = "asg_launch_config"
+  image_id      = data.aws_ami.custom_ami.id
+  instance_type = var.instance_type
   # key_name                = "ec2"
   disable_api_termination = true
   iam_instance_profile {
